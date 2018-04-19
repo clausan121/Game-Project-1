@@ -1,11 +1,11 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var x = 1000; //if i change these values my cat moves on the canvas
+var x = 600; //kitty's starting point
 var y = 500;  
 var srcX;
 var srcY;
 
-var canvasWidth = 1200;
+var canvasWidth = 1500;
 var canvasHeight = 1200;
 canvas.width = canvasWidth;
 canvas.height = canvasHeight; // need this for the canvas to show full
@@ -13,7 +13,6 @@ canvas.height = canvasHeight; // need this for the canvas to show full
 
 var catImage = new Image();
 catImage.src = './images/cat.png'; //need this to show image
-
 
 function updateFrame() {
 
@@ -30,21 +29,31 @@ setInterval(function() {
 
 
 
-
-// the top two control up and down movement
+// control movement
 
 document.onkeydown = function (e) {
   console.log("working moving!!!!");
   if (e.which === 38){
   ctx.clearRect(x, y, canvas.width, canvas.height);
-  y = y - 10;
+  y = y - 20;
   ctx.drawImage(catImage,x,y)
 }
 else if (e.which === 40)
 {
   ctx.clearRect(x,y,canvas.width, canvas.height);
-  y = y + 10;
+  y = y + 20;
+  ctx.drawImage(catImage,x,y)
+}
+else if (e.which === 37){
+  ctx.clearRect(x, y, canvas.width, canvas.height);
+  x = x - 20;
+  ctx.drawImage(catImage,x,y)
+}
+else if (e.which === 39){
+  ctx.clearRect(x, y, canvas.width, canvas.height);
+  x = x + 20;
   ctx.drawImage(catImage,x,y)
 }
 
-};
+
+}; // do not remove
