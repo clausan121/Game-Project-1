@@ -1,21 +1,11 @@
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-// var Scoreboard = new Scoreboard;
-// var addFunction = Scoreboard.addPoint;
 
 var cat = {
   x: 600,
   y: 500
 }
-
-// var ScoreBoard = function (currentScore) {
-//   this.currentScore = currentScore;
-//   console.log('ScoreBoard created');
-// };
-
-// ScoreBoard.prototype.addPoint = function() {
-//   console.log(this.currentScore = this.currentScore + 1);
-// };
 
 
 updateCanvas(); 
@@ -56,45 +46,39 @@ document.onkeydown = function (e) {
   }
 }
   
+ 
 
   function cupcakeCollision() {
-  cupCakesArray.forEach(function(cupcake) {
+cupCakesArray.forEach(function(cupcake) {
   if (Math.abs(cupcake.y - cat.y)<= 15 && Math.abs(cupcake.x - cat.x)<= 15) {
-    // this.currentScore += 1;
-    // alert("win");
-    }
-    });
-
-
-  };
+  }
+})
+  }
 
   function shardCollision() {
     shardsArray.forEach(function(shard) {
-    // for(var i = 0; i < shardsArray.length; i++) {
-    
-      // console.log("checking collision")
+
       if(Math.abs(shard.y - cat.y) <= 15 && Math.abs(shard.x - cat.x) <= 15) {
-        console.log("-------------------collision");
-        // this.currentScore -= 1;
-        // alert("lose");
+        alert("game over");
       }
+    
     });
 
     
-  };
-  
-  
-  
-  function updateCanvas(){
-    setInterval(function(){
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawCat();
-      drawAllTheCupcakes();
-      drawAllTheShards();
-      shardCollision();
-      cupcakeCollision();
-    },100)
   }
-  // do not remove
+  
+ // do not remove
+
+
+function updateCanvas(){
+  setInterval(function(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawCat();
+    drawAllTheCupcakes();
+    drawAllTheShards();
+    shardCollision();
+    cupcakeCollision();
+  },100)
+}
 
 

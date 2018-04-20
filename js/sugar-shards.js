@@ -25,7 +25,7 @@ function addsugarShard() {
     thesugarShard.x = rando;
     shardsArray.push(thesugarShard);
 }
-// delete second shard.y
+
 function fallingShard (shard) {
     var id = setInterval(function(){
         shard.y+=8

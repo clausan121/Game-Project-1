@@ -28,7 +28,7 @@ function addcupCake() {
     cupCakesArray.push(theCupCake);
 }
 
-// delete second cupcake.y
+
 function fallingCake (cupcake){
     var id = setInterval(function(){
         cupcake.y+=8
