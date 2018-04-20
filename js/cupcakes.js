@@ -19,10 +19,11 @@ function infiniteCupcakes (){
     }, 2000)
 }
 
+var theCupCake = {y: 0, x: 0 };
 
 function addcupCake() {
-    var rando = Math.floor(Math.random() * 1000); 
-    var theCupCake = {y: 0, x: 0 };
+    var rando = Math.floor(Math.random() * 1000);
+    theCupCake = {y: 0, x: 0 };
     theCupCake.x = rando;
     cupCakesArray.push(theCupCake);
 }
@@ -38,7 +39,7 @@ function fallingCake (cupcake){
 }
 
 function drawAllTheCupcakes(){
-     console.log("falling");
+    //  console.log("falling");
    cupCakesArray.forEach(function(oneCupcake){
         ctx.drawImage(cupcakeImage,oneCupcake.x, oneCupcake.y,50,50)
    }) 
