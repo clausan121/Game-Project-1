@@ -2,6 +2,8 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+// set width and height for cat variable
+
 var cat = {
   x: 600,
   y: 500
@@ -10,11 +12,12 @@ var cat = {
 
 updateCanvas(); 
 
+// need this for the canvas to show full
 
 var canvasWidth = 1500;
 var canvasHeight = 1200;
 canvas.width = canvasWidth;
-canvas.height = canvasHeight; // need this for the canvas to show full
+canvas.height = canvasHeight;
 
 var catImage = new Image();
 catImage.src = './images/cat.png'; //need this to show image
@@ -47,18 +50,20 @@ document.onkeydown = function (e) {
 }
   
  
-
+// 
   function cupcakeCollision() {
-cupCakesArray.forEach(function(cupcake) {
-  if (Math.abs(cupcake.y - cat.y)<= 15 && Math.abs(cupcake.x - cat.x)<= 15) {
-  }
-})
-  }
+    cupCakesArray.forEach(function(cupcake) {
+      if (Math.abs(cupcake.y - cat.y) <= 15 && Math.abs(cupcake.x - cat.x) <= 15) {
+        alert("hit the cupcake!");
+        }
+      })
+}
 
   function shardCollision() {
     shardsArray.forEach(function(shard) {
 
-      if(Math.abs(shard.y - cat.y) <= 15 && Math.abs(shard.x - cat.x) <= 15) {
+      if(Math.abs(shard.y - cat.y) <= 10 && Math.abs(shard.x - cat.x) <= 40) {
+        // console.log("blahhh");
         alert("game over");
       }
     
