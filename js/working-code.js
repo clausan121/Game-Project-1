@@ -1,4 +1,3 @@
-
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -6,7 +5,9 @@ var ctx = canvas.getContext('2d');
 
 var cat = {
   x: 600,
-  y: 500
+  y: 500,
+  width: 150,
+  height:150
 }
 
 
@@ -27,7 +28,7 @@ catImage.src = './images/cat.png'; //need this to show image
 
 
 function drawCat(){
-  ctx.drawImage(catImage,cat.x,cat.y)
+  ctx.drawImage(catImage,cat.x,cat.y, cat.width, cat.height)
 }
 
 
@@ -50,27 +51,37 @@ document.onkeydown = function (e) {
 }
   
  
-// 
-  function cupcakeCollision() {
-    cupCakesArray.forEach(function(cupcake) {
-      if (Math.abs(cupcake.y - cat.y) <= 15 && Math.abs(cupcake.x - cat.x) <= 15) {
-        alert("hit the cupcake!");
-        }
-      })
+function cupcakeCollision() {
+  cupCakesArray.forEach(function(cupcake) {
+    let catLeft = cat.x;
+    let catRight = cat.x + cat.width/2;
+    let catTop = cat.y;
+    let catBottom = cat.y + cat.height/2;
+    let cupcakeLeft = cupcake.x;
+    let cupcakeRight = cupcake.x + cupcake.width/2;
+    let cupcakeTop = cupcake.y;
+    let cupcakeBottom = cupcake.y + cupcake.height;
+    if(catLeft <= cupcakeRight && cupcakeLeft <= catRight && catBottom <= cupcakeBottom  && cupcakeTop <= catBottom){
+      alert("cupcake hit!!!!")
+    }
+    })
 }
 
-  function shardCollision() {
-    shardsArray.forEach(function(shard) {
-
-      if(Math.abs(shard.y - cat.y) <= 10 && Math.abs(shard.x - cat.x) <= 40) {
-        // console.log("blahhh");
-        alert("game over");
-      }
-    
-    });
-
-    
-  }
+function shardCollision() {
+  shardsArray.forEach(function(shard) {
+    let catLeft = cat.x;
+    let catRight = cat.x + cat.width/2;
+    let catTop = cat.y;
+    let catBottom = cat.y + cat.height/2;
+    let shardLeft = shard.x;
+    let shardRight = shard.x + shard.width/2;
+    let shardTop = shard.y;
+    let shardBottom = shard.y + shard.height;
+    if(catLeft <= shardRight && shardLeft <= catRight && catBottom <= shardBottom  && shardTop <= catBottom){
+      alert("Done!")
+    }
+  });
+}
   
  // do not remove
 
@@ -85,5 +96,3 @@ function updateCanvas(){
     cupcakeCollision();
   },100)
 }
-
-

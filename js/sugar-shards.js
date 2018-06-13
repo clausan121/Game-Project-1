@@ -17,11 +17,22 @@ function infiniteShards (){
         shardIndex++;
     } , 2000)
 }
-var thesugarShard ={y: 0, x: 0};
+// var thesugarShard ={
+//     x: 0, 
+//     y: 0, 
+//     width:50,
+//     height:50
+// };
 
 function addsugarShard() {
     var rando = Math.floor(Math.random() * 1000);
-    thesugarShard ={y: 0, x: 0};
+    // thesugarShard ={y: 0, x: 0};
+    var thesugarShard ={
+        x: 0, 
+        y: 0, 
+        width:50,
+        height:50
+    };
     thesugarShard.x = rando;
     shardsArray.push(thesugarShard);
 }
@@ -38,6 +49,8 @@ function fallingShard (shard) {
 function drawAllTheShards(){
     // console.log("falling");
     shardsArray.forEach(function(oneShard){
-        ctx.drawImage(shardImage, oneShard.x, oneShard.y,50,50)
+        // ctx.drawImage(shardImage, oneShard.x, oneShard.y,50,50)
+        ctx.drawImage(shardImage, oneShard.x, oneShard.y,oneShard.width,oneShard.height)
+
     })
 }

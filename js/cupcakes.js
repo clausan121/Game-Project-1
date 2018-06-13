@@ -1,14 +1,7 @@
-// game variables
-// var startingScore = 0;
-// var continueAnimating = false;
-// var score;
-// var totalCupcakes;
 var cupCakesArray = [];
 var cupcakeImage = new Image();
 cupcakeImage.src = "./images/cupcake.png";
 infiniteCupcakes();
-
-
 
 function infiniteCupcakes (){
     var cupcakeIndex = 0;
@@ -19,11 +12,16 @@ function infiniteCupcakes (){
     }, 2000)
 }
 
-var theCupCake = {y: 0, x: 0 };
+// var theCupCake = {y: 0, x: 0 };
 
 function addcupCake() {
     var rando = Math.floor(Math.random() * 1000);
-    theCupCake = {y: 0, x: 0 };
+    theCupCake = {
+        x: 0, 
+        y: 0, 
+        width:50,
+        height:50 
+    };
     theCupCake.x = rando;
     cupCakesArray.push(theCupCake);
 }
@@ -41,7 +39,7 @@ function fallingCake (cupcake){
 function drawAllTheCupcakes(){
     //  console.log("falling");
    cupCakesArray.forEach(function(oneCupcake){
-        ctx.drawImage(cupcakeImage,oneCupcake.x, oneCupcake.y,50,50)
+        ctx.drawImage(cupcakeImage,oneCupcake.x, oneCupcake.y,oneCupcake.width, oneCupcake.height)
    }) 
 
 }
