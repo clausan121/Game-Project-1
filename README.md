@@ -25,4 +25,4 @@ Additional features to add include:
 * Creating diverse levels (increase/decrease amount of falling items)
 * Variety of "power" items (i.e stars to increase life count, rainbows to consume all cupcakes)
 * Allowing player to select difficulty level
-* Integrating audio
+
