@@ -1,7 +1,7 @@
 # Game-Project-1
 
 
-[SpaceCakes](https://clausan121.github.io/Game-Project-1/) is a space-age, kitty-packed spin on a classic item catcher browser game.  The player moves the Space Cat left, right, up and down to catch the falling cupcakes, earning 1 point for each one caught, while avoiding the falling sugar shards. Player loses 1 life for every chocolate caught, and the game ends when all 3 lives are gone.  The object of the game is to score has many points as possible before losing all 3 lives.  
+[SpaceCakes](https://clausan121.github.io/Game-Project-1/) is a space-age, kitty-packed spin on a classic item catcher browser game.  Use the arrow keys to move the Space Cat left, right, up and down to catch the falling cupcakes, earning 1 point for each one caught, while avoiding the falling sugar shards. Player loses 1 life for every shard caught, and the game ends when all 3 lives are gone.  The object of the game is to score as many points as possible before losing all 3 lives.  
 
 
 

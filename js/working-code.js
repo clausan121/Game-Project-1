@@ -13,19 +13,37 @@ var cat = {
 
 updateCanvas(); 
 
-// need this for the canvas to show full
+// sets height and width of canvas
 
 var canvasWidth = 1500;
 var canvasHeight = 1200;
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
 
+// scoring functionality, Calling $('#id') will return a jQuery object that wraps the DOM object and provides jQuery methods., .html is A function returning the HTML content to set and returns as String
+
+var score = 0;
+function ShowScore(){
+  $(".score").html(score);
+
+}
+function AddPoints(pointsToAdd){
+  score += pointsToAdd;
+}
+function LosePoints(pointsLost){
+  score -= pointsLost;
+}
+
+// if (score < 0){
+//   alert("Game Over");
+// }
+
+// sets the cat's image
 var catImage = new Image();
-catImage.src = './images/cat.png'; //need this to show image
+catImage.src = './images/cat.png';
 
-// function updateFrame() {
-// } //need this to draw cat
 
+// draws cat 
 
 function drawCat(){
   ctx.drawImage(catImage,cat.x,cat.y, cat.width, cat.height)
@@ -50,7 +68,8 @@ document.onkeydown = function (e) {
   }
 }
   
- 
+ // collision detection, set y property to any number greater than 1000 in order to make the object disappear
+
 function cupcakeCollision() {
   cupCakesArray.forEach(function(cupcake) {
     let catLeft = cat.x;
@@ -62,7 +81,8 @@ function cupcakeCollision() {
     let cupcakeTop = cupcake.y;
     let cupcakeBottom = cupcake.y + cupcake.height;
     if(catLeft <= cupcakeRight && cupcakeLeft <= catRight && catBottom <= cupcakeBottom  && cupcakeTop <= catBottom){
-      alert("cupcake hit!!!!")
+      cupcake.y = 1444;
+      AddPoints(10);
     }
     })
 }
@@ -78,12 +98,13 @@ function shardCollision() {
     let shardTop = shard.y;
     let shardBottom = shard.y + shard.height;
     if(catLeft <= shardRight && shardLeft <= catRight && catBottom <= shardBottom  && shardTop <= catBottom){
-      alert("Done!")
+      shard.y = 1444;
+      LosePoints(10);
     }
   });
 }
   
- // do not remove
+ 
 
 
 function updateCanvas(){
@@ -94,5 +115,6 @@ function updateCanvas(){
     drawAllTheShards();
     shardCollision();
     cupcakeCollision();
+    ShowScore();
   },100)
 }
